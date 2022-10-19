@@ -28,7 +28,8 @@
             {
               "type": "frontmost_application_if",
               "bundle_identifiers": [
-                "^com\\.jetbrains\\."
+                "^com\\.jetbrains\\.",
+                "^com\\.google\\.android\\.studio"
               ]
             },
             {
@@ -59,7 +60,8 @@
             {
               "type": "frontmost_application_if",
               "bundle_identifiers": [
-                "^com\\.jetbrains\\."
+                "^com\\.jetbrains\\.",
+                "^com\\.google\\.android\\.studio"
               ]
             },
             {
@@ -96,7 +98,8 @@
             {
               "type": "frontmost_application_if",
               "bundle_identifiers": [
-                "^com\\.jetbrains\\."
+                "^com\\.jetbrains\\.",
+                "^com\\.google\\.android\\.studio"
               ]
             },
             {
@@ -127,7 +130,8 @@
             {
               "type": "frontmost_application_if",
               "bundle_identifiers": [
-                "^com\\.jetbrains\\."
+                "^com\\.jetbrains\\.",
+                "^com\\.google\\.android\\.studio"
               ]
             },
             {

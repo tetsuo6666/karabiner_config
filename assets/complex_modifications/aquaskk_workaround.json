@@ -2,7 +2,7 @@
   "title": "AquaSKK workaround",
   "rules": [
     {
-      "description": "Change control+j to 英数 & かな in Terminal.",
+      "description": "Change control+j to 英数 & かな in Terminal & JetBrains.",
       "manipulators": [
         {
           "type": "basic",
@@ -33,6 +33,8 @@
               "bundle_identifiers": [
                 "^com\\.apple\\.Terminal$",
                 "^com\\.googlecode\\.iterm2$",
+                "^com\\.jetbrains\\.",
+                "^com\\.google\\.android\\.studio",
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
                 "^io\\.alacritty$"
