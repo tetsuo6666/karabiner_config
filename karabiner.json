@@ -1,5 +1,6 @@
 {
     "global": {
+        "ask_for_confirmation_before_quitting": true,
         "check_for_updates_on_startup": true,
         "show_in_menu_bar": true,
         "show_profile_name_in_menu_bar": false,
@@ -17,13 +18,14 @@
                 },
                 "rules": [
                     {
-                        "description": "Change control+j to 英数 & かな in Microsoft PowerPoint.",
+                        "description": "AquaSKK(Ctrl-j) for Terminal/iTerm2",
                         "manipulators": [
                             {
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
-                                            "^com\\.microsoft\\.Powerpoint$"
+                                            "^com\\.googlecode\\.iterm2",
+                                            "^com\\.apple\\.Terminal"
                                         ],
                                         "type": "frontmost_application_if"
                                     }
@@ -33,20 +35,16 @@
                                     "modifiers": {
                                         "mandatory": [
                                             "control"
-                                        ],
-                                        "optional": [
-                                            "caps_lock",
-                                            "shift",
-                                            "option"
                                         ]
                                     }
                                 },
                                 "to": [
                                     {
-                                        "key_code": "japanese_eisuu"
-                                    },
-                                    {
-                                        "key_code": "japanese_kana"
+                                        "select_input_source": {
+                                            "input_mode_id": "com.apple.inputmethod.Japanese.Hiragana",
+                                            "input_source_id": "jp.sourceforge.inputmethod.aquaskk.Hiragana",
+                                            "language": "ja"
+                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -54,12 +52,192 @@
                         ]
                     },
                     {
-                        "description": "Change control+j to 英数 & かな in Microsoft Excel.",
+                        "description": "AquaSKK(Ctrl-j) for JetBrains/Android Studio",
                         "manipulators": [
                             {
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
+                                            "^com\\.jetbrains\\.",
+                                            "^com\\.google\\.android\\.studio"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "j",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "select_input_source": {
+                                            "input_mode_id": "com.apple.inputmethod.Japanese.Hiragana",
+                                            "input_source_id": "jp.sourceforge.inputmethod.aquaskk.Hiragana",
+                                            "language": "ja"
+                                        }
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "AquaSKK(l/L/q/Q) for JetBrains/Android Studio",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.jetbrains\\.",
+                                            "^com\\.google\\.android\\.studio"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    },
+                                    {
+                                        "input_sources": [
+                                            {
+                                                "input_source_id": "^jp\\.sourceforge\\.inputmethod\\.aquaskk\\.(Hiragana|Katakana|HalfWidthKana)$"
+                                            }
+                                        ],
+                                        "type": "input_source_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_shift",
+                                            "right_shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "select_input_source": {
+                                            "input_mode_id": "com.apple.inputmethod.Japanese.FullWidthRoman",
+                                            "input_source_id": "jp.sourceforge.inputmethod.aquaskk.FullWidthRoman",
+                                            "language": "ja"
+                                        }
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.jetbrains\\.",
+                                            "^com\\.google\\.android\\.studio"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    },
+                                    {
+                                        "input_sources": [
+                                            {
+                                                "input_source_id": "^jp\\.sourceforge\\.inputmethod\\.aquaskk\\.(Hiragana|Katakana|HalfWidthKana)$"
+                                            }
+                                        ],
+                                        "type": "input_source_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "l"
+                                },
+                                "to": [
+                                    {
+                                        "select_input_source": {
+                                            "input_mode_id": "com.apple.inputmethod.Roman",
+                                            "input_source_id": "jp.sourceforge.inputmethod.aquaskk.Ascii",
+                                            "language": "en"
+                                        }
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.jetbrains\\.",
+                                            "^com\\.google\\.android\\.studio"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    },
+                                    {
+                                        "input_sources": [
+                                            {
+                                                "input_source_id": "^jp\\.sourceforge\\.inputmethod\\.aquaskk\\.(Hiragana|Katakana|HalfWidthKana)$"
+                                            }
+                                        ],
+                                        "type": "input_source_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "q",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_shift",
+                                            "right_shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "select_input_source": {
+                                            "input_mode_id": "com.apple.inputmethod.Japanese.HalfWidthKana",
+                                            "input_source_id": "jp.sourceforge.inputmethod.aquaskk.HalfWidthKana",
+                                            "language": "ja"
+                                        }
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.jetbrains\\.",
+                                            "^com\\.google\\.android\\.studio"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    },
+                                    {
+                                        "input_sources": [
+                                            {
+                                                "input_source_id": "^jp\\.sourceforge\\.inputmethod\\.aquaskk\\.(FullWidthRoman|Katakana|HalfWidthKana)$"
+                                            }
+                                        ],
+                                        "type": "input_source_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "q"
+                                },
+                                "to": [
+                                    {
+                                        "select_input_source": {
+                                            "input_mode_id": "com.apple.inputmethod.Japanese.Katakana",
+                                            "input_source_id": "jp.sourceforge.inputmethod.aquaskk.Katakana",
+                                            "language": "ja"
+                                        }
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Change control+j to 英数 & かな in Microsoft PowerPoint/Excel.",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.microsoft\\.Powerpoint$",
                                             "^com\\.microsoft\\.Excel$"
                                         ],
                                         "type": "frontmost_application_if"
@@ -70,63 +248,16 @@
                                     "modifiers": {
                                         "mandatory": [
                                             "control"
-                                        ],
-                                        "optional": [
-                                            "caps_lock",
-                                            "shift",
-                                            "option"
                                         ]
                                     }
                                 },
                                 "to": [
                                     {
-                                        "key_code": "japanese_eisuu"
-                                    },
-                                    {
-                                        "key_code": "japanese_kana"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Change control+j to 英数 & かな in Terminal & JetBrains.",
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^com\\.apple\\.Terminal$",
-                                            "^com\\.googlecode\\.iterm2$",
-                                            "^com\\.jetbrains\\.",
-                                            "^com\\.google\\.android\\.studio",
-                                            "^co\\.zeit\\.hyperterm$",
-                                            "^co\\.zeit\\.hyper$",
-                                            "^io\\.alacritty$"
-                                        ],
-                                        "type": "frontmost_application_if"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "j",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "control"
-                                        ],
-                                        "optional": [
-                                            "caps_lock",
-                                            "shift",
-                                            "option"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "japanese_eisuu"
-                                    },
-                                    {
-                                        "key_code": "japanese_kana"
+                                        "select_input_source": {
+                                            "input_mode_id": "com.apple.inputmethod.Japanese.Hiragana",
+                                            "input_source_id": "jp.sourceforge.inputmethod.aquaskk.Hiragana",
+                                            "language": "ja"
+                                        }
                                     }
                                 ],
                                 "type": "basic"
@@ -197,6 +328,34 @@
                         "is_pointing_device": true,
                         "product_id": 65520,
                         "vendor_id": 1149
+                    },
+                    "ignore": true,
+                    "manipulate_caps_lock_led": false,
+                    "simple_modifications": [],
+                    "treat_as_built_in_keyboard": false
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": false,
+                        "product_id": 0,
+                        "vendor_id": 0
+                    },
+                    "ignore": false,
+                    "manipulate_caps_lock_led": true,
+                    "simple_modifications": [],
+                    "treat_as_built_in_keyboard": false
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "identifiers": {
+                        "is_keyboard": false,
+                        "is_pointing_device": true,
+                        "product_id": 0,
+                        "vendor_id": 0
                     },
                     "ignore": true,
                     "manipulate_caps_lock_led": false,
@@ -331,7 +490,18 @@
                 "delay_milliseconds_before_open_device": 1000
             },
             "selected": true,
-            "simple_modifications": [],
+            "simple_modifications": [
+                {
+                    "from": {
+                        "key_code": "caps_lock"
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_control"
+                        }
+                    ]
+                }
+            ],
             "virtual_hid_keyboard": {
                 "country_code": 0,
                 "indicate_sticky_modifier_keys_state": true,

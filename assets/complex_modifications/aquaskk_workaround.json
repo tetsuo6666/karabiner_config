@@ -2,7 +2,7 @@
   "title": "AquaSKK workaround",
   "rules": [
     {
-      "description": "Change control+j to 英数 & かな in Terminal & JetBrains.",
+      "description": "Change control+j to 英数 & かな in Microsoft PowerPoint/Excel.",
       "manipulators": [
         {
           "type": "basic",
@@ -11,106 +11,23 @@
             "modifiers": {
               "mandatory": [
                 "control"
-              ],
-              "optional": [
-                "caps_lock",
-                "shift",
-                "option"
               ]
             }
           },
           "to": [
             {
-              "key_code": "japanese_eisuu"
-            },
-            {
-              "key_code": "japanese_kana"
+              "select_input_source": {
+                "language": "ja",
+                "input_source_id": "jp.sourceforge.inputmethod.aquaskk.Hiragana",
+                "input_mode_id": "com.apple.inputmethod.Japanese.Hiragana"
+              }
             }
           ],
           "conditions": [
             {
               "type": "frontmost_application_if",
               "bundle_identifiers": [
-                "^com\\.apple\\.Terminal$",
-                "^com\\.googlecode\\.iterm2$",
-                "^com\\.jetbrains\\.",
-                "^com\\.google\\.android\\.studio",
-                "^co\\.zeit\\.hyperterm$",
-                "^co\\.zeit\\.hyper$",
-                "^io\\.alacritty$"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "Change control+j to 英数 & かな in Microsoft PowerPoint.",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "j",
-            "modifiers": {
-              "mandatory": [
-                "control"
-              ],
-              "optional": [
-                "caps_lock",
-                "shift",
-                "option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "japanese_eisuu"
-            },
-            {
-              "key_code": "japanese_kana"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.microsoft\\.Powerpoint$"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "Change control+j to 英数 & かな in Microsoft Excel.",
-      "manipulators": [
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "j",
-            "modifiers": {
-              "mandatory": [
-                "control"
-              ],
-              "optional": [
-                "caps_lock",
-                "shift",
-                "option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "japanese_eisuu"
-            },
-            {
-              "key_code": "japanese_kana"
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
+                "^com\\.microsoft\\.Powerpoint$",
                 "^com\\.microsoft\\.Excel$"
               ]
             }
